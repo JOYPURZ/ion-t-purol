@@ -1,0 +1,7 @@
+{
+  "name": "ionic-t-joy ruth",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
