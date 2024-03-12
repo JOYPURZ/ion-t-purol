@@ -1,6 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonAlert, IonButton, IonActionSheetadd } from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonAlert, IonButton,
+  IonActionSheet} from '@ionic/react';
 import './Tab1.css';
 
 const Tab2: React.FC = () => {
@@ -11,8 +12,19 @@ const Tab2: React.FC = () => {
         <IonCardTitle>Purol, Joy</IonCardTitle>
         <IonCardSubtitle>Student</IonCardSubtitle>
       </IonCardHeader>
-
       <IonCardContent>Here's a small text description for the card content.</IonCardContent>
+
+      <IonButton id="present-alert" expand="full" >Click Me</IonButton>
+      <IonAlert
+        trigger="present-alert"
+        header="A Short Title Is Best"
+        subHeader="A Sub Header Is Optional"
+        message="A message should be a short, complete sentence."
+        buttons={['Action']}
+      ></IonAlert>
+
+
+      
     </IonCard>
   );
 };
