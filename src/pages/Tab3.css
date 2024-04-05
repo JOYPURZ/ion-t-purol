@@ -1,6 +1,7 @@
 /* Tab3.css */
 .calculator {
     width: 300px;
+   
     margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -8,10 +9,12 @@
   }
   
   .input {
+    height: 35px;
     font-size: 24px;
+    color: #000000;
     margin-bottom: 10px;
     padding: 5px;
-    background-color: #f0f0f0;
+    background-color: rgb(255, 255, 255);
     text-align: right;
   }
   
