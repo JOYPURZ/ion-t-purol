@@ -82,7 +82,10 @@ const cardData = [
           </IonHeader>
         {/*Dynamic Search*/}
         <>
-          
+          <IonSearchbar 
+            value={searchTerm} 
+            onIonInput={(e) => setSearchTerm(e.target.value ?? '')} 
+          />
           
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
