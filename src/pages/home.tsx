@@ -3,8 +3,6 @@ import {
     IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
 } from '@ionic/react';
 
-// CSS
-//import './profile.css';
 
   const Home: React.FC = () => {
     return (
