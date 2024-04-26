@@ -1,70 +1,119 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  // IonBackButton,
+  // IonButton,
+  // IonButtons,
+  IonCard,
+  // IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCol,
   IonContent,
+  IonGrid,
   IonHeader,
+  IonIcon,
+  // IonInput,
+  // IonItem,
+  // IonLabel,
+  // IonList,
   IonPage,
+  IonRow,
   IonTitle,
   IonToolbar,
-  IonIcon,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
+  // IonItemDivider,
+  IonSearchbar
 } from '@ionic/react';
-import { pulseOutline, calculatorOutline } from 'ionicons/icons';
-import { useHistory } from 'react-router-dom';
 
-const Home: React.FC = () => {
-  const history = useHistory();
+//Custom CSS
+import './Home.css';
 
-  const goToClickCounter = () => {
-    history.push('/clickcounter');
-  };
+//Ionic Icons
+import { speedometerOutline,calculator,pencil, chatbubble} from 'ionicons/icons';
 
-  const goToCalculator = () => {
-    history.push('/calculator');
-  };
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
-        </IonToolbar>
-        <hr />
-      </IonHeader>
-      <IonContent fullscreen className="ion-padding">
-        <div className="ion-text-center"> {/* Centering content */}
-          <IonCard onClick={goToClickCounter} style={{ width: '350px', cursor: 'pointer' }} color="primary">
-            <IonCardContent style={{ fontSize: '30px' }}>
-              <IonIcon icon={pulseOutline} slot="start" />
-              Click Counter
-            </IonCardContent>
-          </IonCard>
+//Additional Routes
+// import Click_counter from './Click_counter';
+
+const cardData = [
+  {
+    title: 'Click Counter',
+    icon: speedometerOutline,
+    subtitle: 'Applet #1',
+    link: '/clickcounter'
+  },
+  {
+    title: 'Calculator',
+    icon: calculator,
+    subtitle: 'Applet #2',
+    link: '/calculator'
+  },
+  {
+    title: 'To Do List',
+    icon: pencil,
+    subtitle: 'Applet #3',
+    link: '/todolist'
+  },
+  {
+    title: 'Blank',
+    icon: chatbubble,
+    subtitle: 'Applet #4'
+    // link: '/quotesgenerator'
+  }
   
-  
-          <IonCard onClick={goToCalculator} style={{ width: '350px', cursor: 'pointer' }} color="primary">
-            <IonCardContent style={{ fontSize: '30px' }}>
-              <IonIcon icon={calculatorOutline} slot="start" />
-              Calculator
-            </IonCardContent>
-          </IonCard>
+];
+
+  const Home: React.FC = () => {
+
+    {/*Dynamic Search*/}
+    const [searchTerm, setSearchTerm] = useState<string>('');
+
+    return (
+      <IonPage>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Home</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent fullscreen>
+          <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle size="large">Home</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+        {/*Dynamic Search*/}
+        <>
+          <IonSearchbar 
+            value={searchTerm} 
+            onIonInput={(e) => setSearchTerm(e.target.value ?? '')} 
+          />
           
-          <IonCard style={{ width: '350px' }} color="primary">
-            <IonCardContent style={{ fontSize: '30px' }}>
-              Blank
-            </IonCardContent>
-          </IonCard>
+          {cardData
+            .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((card, index) => (
+              <IonCard key={index} href={card.link}>
+                <IonCardHeader>
+                  <IonCardTitle>
+                    <IonGrid>
+                      <IonRow>
+                        <IonCol push=".75">
+                          <IonIcon className="home-card-icon" icon={card.icon} color="primary" />
+                        </IonCol>
+                        <IonCol pull='3'>
+                          <div className="home-card-title">{card.title}</div>
+                          <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
+                        </IonCol>
+                      </IonRow>
+                    </IonGrid>
+                  </IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+          ))}
+        </>
+          </IonContent>
+        </IonPage>
+    );
+  };
   
-          <IonCard style={{ width: '350px' }} color="primary">
-            <IonCardContent style={{ fontSize: '30px' }}>
-              Blank
-            </IonCardContent>
-          </IonCard>
-        </div>
-      </IonContent>
-    </IonPage>
-  );
+  //
+  export default Home;
   
-};
-
-export default Home;
