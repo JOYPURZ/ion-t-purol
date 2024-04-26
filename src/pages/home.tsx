@@ -54,10 +54,10 @@ const cardData = [
     link: '/todolist'
   },
   {
-    title: 'Blank',
+    title: 'Quotes Generator',
     icon: chatbubble,
-    subtitle: 'Applet #4'
-    // link: '/quotesgenerator'
+    subtitle: 'Applet #4',
+    link: '/quotesgenerator'
   }
   
 ];
