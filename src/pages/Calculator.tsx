@@ -1,6 +1,6 @@
 // Tab3.jsx
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Calculator.css';
 
@@ -30,9 +30,11 @@ const Calculator: React.FC = () => {
       <IonToolbar>
         <IonTitle>Calculator</IonTitle>
       </IonToolbar>
-    </IonHeader>
+      </IonHeader>
+      <IonButtons slot="start">
+        <IonBackButton defaultHref="/" />
+      </IonButtons>
     <IonContent fullscreen>
-      <h1>Calculator</h1>
       <div className="calculator">
       <div className="input">{input}</div>
       <div className="buttons">
