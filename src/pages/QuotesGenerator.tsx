@@ -93,7 +93,7 @@ const QuotesGenerator: React.FC = () => {
                 <IonAlert
                   isOpen={showAlert}
                   onDidDismiss={handleAlertDismiss} // Call the handleAlertDismiss function when the alert is closed
-                  header="ArysArts"
+                  header="Joy-joy"
                   subHeader=""
                   message={renderRandomMessage()}
                   buttons={['Close']}
