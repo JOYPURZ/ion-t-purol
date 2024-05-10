@@ -1,8 +1,8 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+// import ExploreContainer from '../components/ExploreContainer';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonAlert, IonButton,
   IonActionSheet} from '@ionic/react';
-import './Profile.css';
+import './profile.css';
 
 const Profile: React.FC = () => {
   return (

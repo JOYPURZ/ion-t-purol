@@ -1,8 +1,8 @@
 // Tab3.jsx
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Calculator.css';
+// import ExploreContainer from '../components/ExploreContainer';
+import './calculator.css';
 
 const Calculator: React.FC = () => {
   const [input, setInput] = useState('');

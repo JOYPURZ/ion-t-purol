@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './ClickCounter.css';
+// import ExploreContainer from '../components/ExploreContainer';
+import './clickcounter.css';
 
 const ClickCounter: React.FC = () => {
   const [clickCount, setClickCount] = useState(0);
