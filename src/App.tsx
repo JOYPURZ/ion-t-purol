@@ -62,14 +62,15 @@ const App: React.FC = () => (
           <Route exact path="/ion-t-purol/profile">
             <Profile />
           </Route>
-          <Route exact path="/ion-t-purol/home/click-counter">
+
+          <Route exact path="/ion-t-purol/home/clickcounter">
             <ClickCounter />
           </Route>
           <Route path="/ion-t-purol/home/calculator">
             <Calculator />
           </Route>
 
-          <Route path="/ion-t-purol/home/to-do-list">
+          <Route path="/ion-t-purol/home/todolist">
             <Todolist />
           </Route>
 
@@ -89,7 +90,7 @@ const App: React.FC = () => (
             <IonIcon aria-hidden="true" icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-       
+
           <IonTabButton tab="profile" href="/ion-t-purol/profile">
             <IonIcon aria-hidden="true" icon={personOutline} />
             <IonLabel>Profile</IonLabel>

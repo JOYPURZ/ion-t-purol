@@ -28,7 +28,7 @@ import {
 //Ionicons
 import { trashOutline, pencilOutline, checkmarkOutline } from 'ionicons/icons';
 
-import './Todolist.css';
+import './todolist.css';
 
 // Firebase
 import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
