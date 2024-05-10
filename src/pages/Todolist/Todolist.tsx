@@ -32,7 +32,7 @@ import './Todolist.css';
 
 // Firebase
 import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
-import { db } from './firebase';
+import { db } from './Firebase';
 
 const Todolist: React.FC = () => {
   const [todolist, setTodos] = useState<{ id: string; title: string; description: string; dateAdded: string; completed: boolean }[]>([]);

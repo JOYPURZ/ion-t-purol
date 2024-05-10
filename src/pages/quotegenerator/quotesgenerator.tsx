@@ -30,7 +30,7 @@ import {
 } from '@ionic/react';
 
 //Dynamic data reference
-import data from '../assets/json/data.json';
+import data from '../../assets/json/data.json';
 
 const QuotesGenerator: React.FC = () => {
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
-  // IonBackButton,
-  // IonButton,
-  // IonButtons,
+  IonBackButton,
+  IonButton,
+  IonButtons,
   IonCard,
-  // IonCardContent,
+  IonCardContent,
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
@@ -13,67 +13,85 @@ import {
   IonGrid,
   IonHeader,
   IonIcon,
-  // IonInput,
-  // IonItem,
-  // IonLabel,
-  // IonList,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
   IonRow,
   IonTitle,
   IonToolbar,
-  // IonItemDivider,
-  IonSearchbar
+  IonItemDivider,
+  IonSearchbar,
+  IonBadge
 } from '@ionic/react';
 
 //Custom CSS
-import './Home.css';
+import './home.css';
 
 //Ionic Icons
-import { speedometerOutline,calculator,pencil, chatbubble, readerOutline} from 'ionicons/icons';
-import Notes from './notes/notes';
-
-//Additional Routes
-// import Click_counter from './Click_counter';
+import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase, logoReact} from 'ionicons/icons';
 
 const cardData = [
   {
     title: 'Click Counter',
     icon: speedometerOutline,
     subtitle: 'Applet #1',
-    link: '/clickcounter'
+    link: 'home/clickcounter',
+    tags: {
+      tag1: logoIonic,
+      tag2: logoReact
+    }
+
   },
   {
     title: 'Calculator',
     icon: calculator,
     subtitle: 'Applet #2',
-    link: '/calculator'
+    link: 'home/calculator',
+    tags: {
+      tag1: logoIonic,
+      tag2: logoReact
+    }
   },
   {
     title: 'To Do List',
     icon: pencil,
     subtitle: 'Applet #3',
-    link: '/todolist'
+    link: 'home/todolist',
+    tags: {
+      tag1: logoIonic,
+      tag2: logoReact
+    }
   },
   {
-    title: 'Quotes Generator',
+    title: 'Quote Generator',
     icon: chatbubble,
     subtitle: 'Applet #4',
-    link: '/quotesgenerator'
+    link: 'home/quotesgenerator',
+    tags: {
+      tag1: logoIonic,
+      tag2: logoReact
+    }
   },
   {
     title: 'Notes',
     icon: readerOutline,
     subtitle: 'Applet #5',
-    link: '/notes'
+    link: 'home/notes',
+    tags: {
+      tag1: logoIonic,
+      tag2: logoReact, 
+      tag3: logoFirebase 
+    }
   }
   
 ];
 
-  const Home: React.FC = () => {
-
-    {/*Dynamic Search*/}
-    const [searchTerm, setSearchTerm] = useState<string>('');
-
+const Home: React.FC = () => {
+  {/*Dynamic Search*/}
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  
     return (
       <IonPage>
         <IonHeader>
@@ -87,8 +105,8 @@ const cardData = [
               <IonTitle size="large">Home</IonTitle>
             </IonToolbar>
           </IonHeader>
-        {/*Dynamic Search*/}
-        <>
+          
+          {/*Dynamic Search*/}
           <IonSearchbar 
             value={searchTerm} 
             onIonInput={(e) => setSearchTerm(e.target.value ?? '')} 
@@ -97,30 +115,36 @@ const cardData = [
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((card, index) => (
-              <IonCard key={index} href={card.link}>
+              <IonCard key={index} routerLink={card.link} routerDirection='forward'>
                 <IonCardHeader>
                   <IonCardTitle>
                     <IonGrid>
                       <IonRow>
-                        <IonCol push=".75">
+                        <IonCol size="2">
                           <IonIcon className="home-card-icon" icon={card.icon} color="primary" />
                         </IonCol>
-                        <IonCol pull='3'>
-                          <div className="home-card-title">{card.title}</div>
-                          <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
-                        </IonCol>
+                        <IonCol size="auto">
+                            <div className="home-card-title">{card.title}</div>
+                            <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
+                            {card.tags && Object.entries(card.tags).map(([key, icon], i) => (
+                              <IonIcon
+                                key={i}
+                                className="home-card-subicon"
+                                icon={icon}
+                                color="primary" // Set color as needed
+                              />
+                            ))}
+                          </IonCol>
                       </IonRow>
                     </IonGrid>
                   </IonCardTitle>
                 </IonCardHeader>
               </IonCard>
           ))}
-        </>
-          </IonContent>
-        </IonPage>
+        </IonContent>
+      </IonPage>
     );
-  };
+};
   
-  //
-  export default Home;
+export default Home;
   
